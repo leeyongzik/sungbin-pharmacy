@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#3A4A35" />
+  <title>성빈약국 · SUNGBIN PHARMACY</title>
+  <meta name="description" content="동네 편집샵 약국. 약사가 직접 큐레이션한 약과 영양제." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+KR:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+
+    <!-- ─────────── 1. 외관 ─────────── -->
+    <section class="screen active" id="screen-exterior" data-screen="exterior">
+      <div class="exterior-wrap">
+        <img src="images/exterior.png" alt="성빈약국 외관" class="exterior-img" />
+        <div class="exterior-overlay"></div>
+        <button class="enter-btn" onclick="goTo('entry')" aria-label="약국 들어가기">
+          <span class="enter-icon">✦</span>
+          <span class="enter-text">터치해서 들어오세요</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─────────── 2. 입구 메뉴 ─────────── -->
+    <section class="screen" id="screen-entry" data-screen="entry">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('exterior')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">성빈약국</h1>
+      </header>
+
+      <div class="entry-hero">
+        <p class="entry-greeting">어서오세요</p>
+        <h2 class="entry-tagline">무엇을<br />도와드릴까요?</h2>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="menu-card" onclick="goTo('chat')">
+          <div class="menu-marker">01</div>
+          <div class="menu-body">
+            <div class="menu-title">약사와 대화하기</div>
+            <div class="menu-sub">궁금한 것을 물어보세요</div>
+          </div>
+          <div class="menu-arrow">→</div>
+        </button>
+
+        <button class="menu-card" onclick="goTo('browse')">
+          <div class="menu-marker">02</div>
+          <div class="menu-body">
+            <div class="menu-title">약국 둘러보기</div>
+            <div class="menu-sub">새로운 약과 인기 상품</div>
+          </div>
+          <div class="menu-arrow">→</div>
+        </button>
+      </div>
+
+      <footer class="screen-footer">
+        <a class="footer-phone" href="tel:031-719-0936">
+          <span class="footer-icon">☎</span>
+          <span class="footer-num">031-719-0936</span>
+        </a>
+        <p class="footer-hours">평일 09:00 - 19:00 · 토 09:00 - 14:00</p>
+      </footer>
+    </section>
+
+    <!-- ─────────── 3. 약사와 대화 ─────────── -->
+    <section class="screen" id="screen-chat" data-screen="chat">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('entry')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">약사와 대화</h1>
+      </header>
+
+      <div class="chat-wrap">
+        <div class="pharmacist-frame">
+          <img src="images/pharmacist.png" alt="성빈약국 약사" class="pharmacist-img" />
+        </div>
+
+        <div class="pharmacist-greeting">
+          <span class="greeting-line">어떤 것이</span>
+          <span class="greeting-line">궁금하세요?</span>
+        </div>
+
+        <div class="quick-questions-label">자주 묻는 질문</div>
+        <div class="quick-questions" id="quickQuestions">
+          <!-- JS로 채워짐 -->
+        </div>
+
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            class="chat-input"
+            placeholder="예: 환절기 감기에 좋은 약은?"
+            autocomplete="off"
+          />
+          <button class="chat-submit" onclick="askPharmacist()" aria-label="물어보기">
+            <span>물어보기</span>
+          </button>
+        </div>
+
+        <div class="chat-answer" id="chatAnswer"></div>
+      </div>
+    </section>
+
+    <!-- ─────────── 4. 둘러보기 메뉴 ─────────── -->
+    <section class="screen" id="screen-browse" data-screen="browse">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('entry')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">약국 둘러보기</h1>
+      </header>
+
+      <div class="browse-intro">
+        <p>약사가 직접 큐레이션한 제품들을</p>
+        <p>천천히 둘러보세요.</p>
+      </div>
+
+      <div class="browse-wrap">
+        <button class="browse-card" onclick="goTo('products-new')">
+          <div class="browse-tag">NEW</div>
+          <div class="browse-title">새로 온 약</div>
+          <div class="browse-sub">이번 달 새로 입고된 제품</div>
+        </button>
+
+        <button class="browse-card" onclick="goTo('products-popular')">
+          <div class="browse-tag">POPULAR</div>
+          <div class="browse-title">잘 팔리는 약</div>
+          <div class="browse-sub">고객님들이 가장 사랑하는</div>
+        </button>
+
+        <button class="browse-card" onclick="goTo('products-all')">
+          <div class="browse-tag">ALL</div>
+          <div class="browse-title">여러 약들</div>
+          <div class="browse-sub">전체 카테고리 둘러보기</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─────────── 5. 새로 온 약 ─────────── -->
+    <section class="screen" id="screen-products-new" data-screen="products-new">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('browse')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">새로 온 약</h1>
+      </header>
+
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">NEW</span>
+          <span class="product-date">2026.05 입고</span>
+        </div>
+
+        <img src="images/new.png" alt="새로 온 약 진열대" class="product-img" />
+
+        <p class="product-caption">
+          이번 달 새로 들어온 허벌 블렌드와 세럼 라인업입니다.
+        </p>
+
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 6. 잘 팔리는 약 ─────────── -->
+    <section class="screen" id="screen-products-popular" data-screen="products-popular">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('browse')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">잘 팔리는 약</h1>
+      </header>
+
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">POPULAR</span>
+          <span class="product-date">고객 추천</span>
+        </div>
+
+        <img src="images/popular.png" alt="잘 팔리는 약 진열대" class="product-img" />
+
+        <p class="product-caption">
+          고객님들이 다시 찾는 베스트셀러입니다.
+        </p>
+
+        <!-- ── 제품 카드 5개 ── -->
+        <div class="product-grid">
+
+          <button class="product-card" onclick="showProduct('omega3')">
+            <div class="product-card-icon">🐟</div>
+            <div class="product-card-body">
+              <div class="product-card-num">01</div>
+              <div class="product-card-name">오메가3</div>
+              <div class="product-card-sub">혈관 · 눈 · 뇌 건강</div>
+            </div>
+            <div class="product-card-arrow">→</div>
+          </button>
+
+          <button class="product-card" onclick="showProduct('coq10')">
+            <div class="product-card-icon">⚡</div>
+            <div class="product-card-body">
+              <div class="product-card-num">02</div>
+              <div class="product-card-name">코엔자임Q10</div>
+              <div class="product-card-sub">에너지 · 항산화 · 심장</div>
+            </div>
+            <div class="product-card-arrow">→</div>
+          </button>
+
+          <button class="product-card" onclick="showProduct('multivitamin')">
+            <div class="product-card-icon">🌿</div>
+            <div class="product-card-body">
+              <div class="product-card-num">03</div>
+              <div class="product-card-name">종합비타민</div>
+              <div class="product-card-sub">하루 영양 균형</div>
+            </div>
+            <div class="product-card-arrow">→</div>
+          </button>
+
+          <button class="product-card" onclick="showProduct('probiotics')">
+            <div class="product-card-icon">🦠</div>
+            <div class="product-card-body">
+              <div class="product-card-num">04</div>
+              <div class="product-card-name">유산균</div>
+              <div class="product-card-sub">장 건강 · 면역 · 소화</div>
+            </div>
+            <div class="product-card-arrow">→</div>
+          </button>
+
+          <button class="product-card" onclick="showProduct('vitaminb')">
+            <div class="product-card-icon">✨</div>
+            <div class="product-card-body">
+              <div class="product-card-num">05</div>
+              <div class="product-card-name">비타민B</div>
+              <div class="product-card-sub">피로 · 신경 · 피부</div>
+            </div>
+            <div class="product-card-arrow">→</div>
+          </button>
+
+        </div>
+        <!-- ── /제품 카드 ── -->
+
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 7. 여러 약들 ─────────── -->
+    <section class="screen" id="screen-products-all" data-screen="products-all">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('browse')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">여러 약들</h1>
+      </header>
+
+      <div class="product-display">
+        <img src="images/all-products.png" alt="약국 내부 전체" class="product-img" />
+
+        <div class="category-list">
+          <div class="category-list-title">카테고리</div>
+          <div class="category-item"><span class="cat-num">01</span>Vitamins &amp; Supplements</div>
+          <div class="category-item"><span class="cat-num">02</span>Herbal Supplements</div>
+          <div class="category-item"><span class="cat-num">03</span>Skincare &amp; Wellness</div>
+          <div class="category-item"><span class="cat-num">04</span>Korean Herbal Medicine</div>
+        </div>
+
+        <p class="product-caption">
+          관심 있는 카테고리는 매장에서 직접 보실 수 있습니다.
+        </p>
+
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 8. 오메가3 ─────────── -->
+    <section class="screen" id="screen-popular-1" data-screen="popular-1">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('products-popular')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">오메가3</h1>
+      </header>
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">POPULAR 01</span>
+          <span class="product-date">약사 추천</span>
+        </div>
+        <img src="images/popular1.png" alt="오메가3" class="product-img" />
+        <div class="product-detail-info">
+          <div class="detail-name">오메가3</div>
+          <div class="detail-benefit">혈관 · 눈 · 뇌 건강</div>
+          <div class="detail-desc">혈중 중성지방 개선, 눈 건조 완화, 두뇌 기능에 도움을 줍니다. 약사가 직접 선별한 고함량 제품입니다.</div>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 9. 코엔자임Q10 ─────────── -->
+    <section class="screen" id="screen-popular-2" data-screen="popular-2">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('products-popular')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">코엔자임Q10</h1>
+      </header>
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">POPULAR 02</span>
+          <span class="product-date">약사 추천</span>
+        </div>
+        <img src="images/popular2.png" alt="코엔자임Q10" class="product-img" />
+        <div class="product-detail-info">
+          <div class="detail-name">코엔자임Q10</div>
+          <div class="detail-benefit">에너지 · 항산화 · 심장</div>
+          <div class="detail-desc">세포 에너지 생성에 필수적인 성분으로, 항산화 작용과 심장 건강 유지에 도움을 줍니다.</div>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 10. 종합비타민 ─────────── -->
+    <section class="screen" id="screen-popular-3" data-screen="popular-3">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('products-popular')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">종합비타민</h1>
+      </header>
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">POPULAR 03</span>
+          <span class="product-date">약사 추천</span>
+        </div>
+        <img src="images/popular3.png" alt="종합비타민" class="product-img" />
+        <div class="product-detail-info">
+          <div class="detail-name">종합비타민</div>
+          <div class="detail-benefit">하루 영양 균형</div>
+          <div class="detail-desc">하루에 필요한 필수 비타민과 미네랄을 한 번에 균형 있게 보충합니다. 식사 후 복용을 권장합니다.</div>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 11. 유산균 ─────────── -->
+    <section class="screen" id="screen-popular-4" data-screen="popular-4">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('products-popular')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">유산균</h1>
+      </header>
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">POPULAR 04</span>
+          <span class="product-date">약사 추천</span>
+        </div>
+        <img src="images/popular4.png" alt="유산균" class="product-img" />
+        <div class="product-detail-info">
+          <div class="detail-name">유산균</div>
+          <div class="detail-benefit">장 건강 · 면역 · 소화</div>
+          <div class="detail-desc">장내 유익균을 늘려 소화 기능을 개선하고 면역력 강화에 도움을 줍니다. 공복 또는 식사와 함께 복용하세요.</div>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 12. 비타민B ─────────── -->
+    <section class="screen" id="screen-popular-5" data-screen="popular-5">
+      <header class="screen-header">
+        <button class="back-btn" onclick="goTo('products-popular')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">비타민B</h1>
+      </header>
+      <div class="product-display">
+        <div class="product-tag-line">
+          <span class="product-tag">POPULAR 05</span>
+          <span class="product-date">약사 추천</span>
+        </div>
+        <img src="images/popular5.png" alt="비타민B" class="product-img" />
+        <div class="product-detail-info">
+          <div class="detail-name">비타민B 복합</div>
+          <div class="detail-benefit">피로 · 신경 · 피부</div>
+          <div class="detail-desc">B1·B2·B6·B12 등 8종 비타민B군이 만성 피로 해소, 신경 기능 유지, 피부 건강에 도움을 줍니다.</div>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
