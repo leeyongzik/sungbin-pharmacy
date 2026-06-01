@@ -361,7 +361,6 @@ img {
 
 .pharmacist-frame {
   width: 100%;
-  height: 240px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--beige);
@@ -379,9 +378,8 @@ img {
 
 .pharmacist-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 22%;
+  height: auto;
+  display: block;
 }
 
 .pharmacist-greeting {
@@ -731,6 +729,138 @@ img {
 .contact-arrow {
   font-family: var(--font-serif-en);
   font-size: 17px;
+}
+
+/* ═════════════════════════════════════════
+   POPULAR — 제품 카드 그리드
+   ═════════════════════════════════════════ */
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid var(--beige);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s ease;
+}
+
+.product-card:active {
+  transform: scale(0.985);
+  background: var(--cream-warm);
+  border-color: var(--green);
+}
+
+.product-card:active::before {
+  transform: scaleY(1);
+}
+
+.product-card-icon {
+  font-size: 1.9rem;
+  width: 52px;
+  height: 52px;
+  background: var(--cream);
+  border: 1px solid var(--beige);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.product-card-body {
+  flex: 1;
+}
+
+.product-card-num {
+  font-family: var(--font-serif-en);
+  font-style: italic;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+
+.product-card-name {
+  font-family: var(--font-serif-kr);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--green-dark);
+  letter-spacing: -0.2px;
+  margin-bottom: 3px;
+}
+
+.product-card-sub {
+  font-size: 12.5px;
+  color: var(--charcoal);
+  opacity: 0.6;
+}
+
+.product-card-arrow {
+  font-family: var(--font-serif-en);
+  font-size: 18px;
+  color: var(--green);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* ─── 제품 상세 정보 블록 ─── */
+.product-detail-info {
+  background: var(--white);
+  border: 1px solid var(--beige);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-name {
+  font-family: var(--font-serif-kr);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: -0.3px;
+}
+
+.detail-benefit {
+  font-family: var(--font-serif-en);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.detail-desc {
+  font-size: 14px;
+  color: var(--charcoal);
+  line-height: 1.75;
+  opacity: 0.85;
 }
 
 /* ═════════════════════════════════════════
