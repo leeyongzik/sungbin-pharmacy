@@ -39,7 +39,8 @@
 
     <!-- ─────────── 2. 입구 메뉴 ─────────── -->
     <section class="screen" id="screen-entry" data-screen="entry">
-      <header class="screen-header">
+      <div class="screen-bg" style="background-image:url('images/back.png')"></div>
+      <header class="screen-header screen-header-glass">
         <button class="back-btn" onclick="goTo('exterior')" aria-label="뒤로">←</button>
         <h1 class="screen-title">성빈약국</h1>
       </header>
@@ -120,7 +121,8 @@
 
     <!-- ─────────── 4. 둘러보기 메뉴 ─────────── -->
     <section class="screen" id="screen-browse" data-screen="browse">
-      <header class="screen-header">
+      <div class="screen-bg" style="background-image:url('images/back2.png')"></div>
+      <header class="screen-header screen-header-glass">
         <button class="back-btn" onclick="goTo('entry')" aria-label="뒤로">←</button>
         <h1 class="screen-title">약국 둘러보기</h1>
       </header>
@@ -158,17 +160,42 @@
         <h1 class="screen-title">새로 온 약</h1>
       </header>
 
-      <div class="product-display">
-        <div class="product-tag-line">
-          <span class="product-tag">NEW</span>
-          <span class="product-date">2026.05 입고</span>
+      <div class="new-wrap">
+        <div class="new-hero">
+          <img src="images/new.png" alt="새로 온 약 진열대" class="new-hero-img" />
+          <div class="new-hero-label">NEW ARRIVALS</div>
         </div>
 
-        <img src="images/new.png" alt="새로 온 약 진열대" class="product-img" />
+        <div class="new-list">
 
-        <p class="product-caption">
-          이번 달 새로 들어온 허벌 블렌드와 세럼 라인업입니다.
-        </p>
+          <button class="new-item" onclick="goTo('new-1')">
+            <div class="new-item-badge">NEW</div>
+            <div class="new-item-body">
+              <div class="new-item-name">신상품 1</div>
+              <div class="new-item-sub">2026.06 입고</div>
+            </div>
+            <div class="new-item-arrow">→</div>
+          </button>
+
+          <button class="new-item" onclick="goTo('new-2')">
+            <div class="new-item-badge">NEW</div>
+            <div class="new-item-body">
+              <div class="new-item-name">신상품 2</div>
+              <div class="new-item-sub">2026.06 입고</div>
+            </div>
+            <div class="new-item-arrow">→</div>
+          </button>
+
+          <button class="new-item" onclick="goTo('new-3')">
+            <div class="new-item-badge">NEW</div>
+            <div class="new-item-body">
+              <div class="new-item-name">신상품 3</div>
+              <div class="new-item-sub">2026.06 입고</div>
+            </div>
+            <div class="new-item-arrow">→</div>
+          </button>
+
+        </div>
 
         <a class="contact-btn" href="tel:031-719-0936">
           <span>약사에게 자세히 듣기</span>
@@ -413,6 +440,164 @@
           <span class="video-btn-icon">▶</span>
           <span>약사 설명 영상 보기</span>
         </a>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         신상품 상세 페이지 3개
+    ═══════════════════════════════════════ -->
+
+    <!-- ─────────── 신상품1 상세 ─────────── -->
+    <section class="screen" id="screen-new-1" data-screen="new-1">
+      <div class="new-detail-bg" style="background-image:url('images/back.png')"></div>
+      <header class="screen-header new-detail-header">
+        <button class="back-btn" onclick="goTo('products-new')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">신상품 1</h1>
+      </header>
+      <div class="new-detail-wrap">
+        <div class="new-detail-card">
+          <img src="images/new1.png" alt="신상품1" class="new-detail-img" />
+          <a class="video-btn" href="NEW_VIDEO_URL_1" target="_blank">
+            <span class="video-btn-icon">▶</span>
+            <span>약사 설명 영상 보기</span>
+          </a>
+          <div class="new-detail-desc">
+            <div class="new-detail-name">신상품 1</div>
+            <div class="new-detail-text">이 제품의 핵심 효능과 특징을 두 줄로 간단히 소개합니다.</div>
+          </div>
+          <button class="more-btn" onclick="goTo('new-1-detail')">
+            <span>자세한 설명</span>
+            <span class="more-btn-arrow">→</span>
+          </button>
+          <a class="contact-btn" href="tel:031-719-0936">
+            <span>약사에게 자세히 듣기</span>
+            <span class="contact-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── 신상품1 자세한설명 ─────────── -->
+    <section class="screen" id="screen-new-1-detail" data-screen="new-1-detail">
+      <div class="new-detail-bg" style="background-image:url('images/back2.png')"></div>
+      <header class="screen-header new-detail-header">
+        <button class="back-btn" onclick="goTo('new-1')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">신상품 1</h1>
+      </header>
+      <div class="deep-detail-wrap">
+        <div class="deep-detail-name">신상품 1</div>
+        <div class="deep-detail-box">
+          <p>여기에 신상품 1의 상세 설명을 입력해 주세요.</p>
+          <p>성분, 복용법, 주의사항, 약사 추천 이유 등을 자유롭게 작성할 수 있습니다.</p>
+          <p>이 공간은 화면의 약 2/3 크기로 설계되어 있으며, 내용이 많으면 내부 스크롤이 됩니다.</p>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 신상품2 상세 ─────────── -->
+    <section class="screen" id="screen-new-2" data-screen="new-2">
+      <div class="new-detail-bg" style="background-image:url('images/back.png')"></div>
+      <header class="screen-header new-detail-header">
+        <button class="back-btn" onclick="goTo('products-new')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">신상품 2</h1>
+      </header>
+      <div class="new-detail-wrap">
+        <div class="new-detail-card">
+          <img src="images/new2.png" alt="신상품2" class="new-detail-img" />
+          <a class="video-btn" href="NEW_VIDEO_URL_2" target="_blank">
+            <span class="video-btn-icon">▶</span>
+            <span>약사 설명 영상 보기</span>
+          </a>
+          <div class="new-detail-desc">
+            <div class="new-detail-name">신상품 2</div>
+            <div class="new-detail-text">이 제품의 핵심 효능과 특징을 두 줄로 간단히 소개합니다.</div>
+          </div>
+          <button class="more-btn" onclick="goTo('new-2-detail')">
+            <span>자세한 설명</span>
+            <span class="more-btn-arrow">→</span>
+          </button>
+          <a class="contact-btn" href="tel:031-719-0936">
+            <span>약사에게 자세히 듣기</span>
+            <span class="contact-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── 신상품2 자세한설명 ─────────── -->
+    <section class="screen" id="screen-new-2-detail" data-screen="new-2-detail">
+      <div class="new-detail-bg" style="background-image:url('images/back2.png')"></div>
+      <header class="screen-header new-detail-header">
+        <button class="back-btn" onclick="goTo('new-2')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">신상품 2</h1>
+      </header>
+      <div class="deep-detail-wrap">
+        <div class="deep-detail-name">신상품 2</div>
+        <div class="deep-detail-box">
+          <p>여기에 신상품 2의 상세 설명을 입력해 주세요.</p>
+          <p>성분, 복용법, 주의사항, 약사 추천 이유 등을 자유롭게 작성할 수 있습니다.</p>
+          <p>이 공간은 화면의 약 2/3 크기로 설계되어 있으며, 내용이 많으면 내부 스크롤이 됩니다.</p>
+        </div>
+        <a class="contact-btn" href="tel:031-719-0936">
+          <span>약사에게 자세히 듣기</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── 신상품3 상세 ─────────── -->
+    <section class="screen" id="screen-new-3" data-screen="new-3">
+      <div class="new-detail-bg" style="background-image:url('images/back.png')"></div>
+      <header class="screen-header new-detail-header">
+        <button class="back-btn" onclick="goTo('products-new')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">신상품 3</h1>
+      </header>
+      <div class="new-detail-wrap">
+        <div class="new-detail-card">
+          <img src="images/new3.png" alt="신상품3" class="new-detail-img" />
+          <a class="video-btn" href="NEW_VIDEO_URL_3" target="_blank">
+            <span class="video-btn-icon">▶</span>
+            <span>약사 설명 영상 보기</span>
+          </a>
+          <div class="new-detail-desc">
+            <div class="new-detail-name">신상품 3</div>
+            <div class="new-detail-text">이 제품의 핵심 효능과 특징을 두 줄로 간단히 소개합니다.</div>
+          </div>
+          <button class="more-btn" onclick="goTo('new-3-detail')">
+            <span>자세한 설명</span>
+            <span class="more-btn-arrow">→</span>
+          </button>
+          <a class="contact-btn" href="tel:031-719-0936">
+            <span>약사에게 자세히 듣기</span>
+            <span class="contact-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── 신상품3 자세한설명 ─────────── -->
+    <section class="screen" id="screen-new-3-detail" data-screen="new-3-detail">
+      <div class="new-detail-bg" style="background-image:url('images/back2.png')"></div>
+      <header class="screen-header new-detail-header">
+        <button class="back-btn" onclick="goTo('new-3')" aria-label="뒤로">←</button>
+        <h1 class="screen-title">신상품 3</h1>
+      </header>
+      <div class="deep-detail-wrap">
+        <div class="deep-detail-name">신상품 3</div>
+        <div class="deep-detail-box">
+          <p>여기에 신상품 3의 상세 설명을 입력해 주세요.</p>
+          <p>성분, 복용법, 주의사항, 약사 추천 이유 등을 자유롭게 작성할 수 있습니다.</p>
+          <p>이 공간은 화면의 약 2/3 크기로 설계되어 있으며, 내용이 많으면 내부 스크롤이 됩니다.</p>
+        </div>
         <a class="contact-btn" href="tel:031-719-0936">
           <span>약사에게 자세히 듣기</span>
           <span class="contact-arrow">→</span>
