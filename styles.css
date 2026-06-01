@@ -827,6 +827,94 @@ img {
   flex-shrink: 0;
 }
 
+/* ═════════════════════════════════════════
+   07. 여러 약들 — 스크롤 없는 한 화면
+   ═════════════════════════════════════════ */
+.all-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  gap: 14px;
+  overflow: hidden;
+}
+
+.all-hero {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--beige);
+  flex-shrink: 0;
+  height: 36vh;
+}
+
+.all-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.all-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+
+.all-card {
+  background: var(--white);
+  border: 1px solid var(--beige);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.all-card::after {
+  content: '→';
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  font-family: var(--font-serif-en);
+  font-size: 16px;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.all-card:active {
+  background: var(--cream-warm);
+  border-color: var(--green);
+  transform: scale(0.97);
+}
+
+.all-card-num {
+  font-family: var(--font-serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.all-card-name {
+  font-family: var(--font-serif-kr);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green-dark);
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+
+.all-contact-btn {
+  flex-shrink: 0;
+}
+
 /* ─── 제품 상세 정보 블록 ─── */
 .product-detail-info {
   background: var(--white);
