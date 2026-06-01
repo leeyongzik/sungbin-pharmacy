@@ -1029,6 +1029,40 @@ img {
   flex-shrink: 0;
 }
 
+/* ─── 동영상 링크 버튼 ─── */
+.video-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--cream);
+  color: var(--green-dark);
+  border: 1.5px solid var(--gold);
+  padding: 15px;
+  border-radius: var(--radius);
+  font-family: var(--font-serif-kr);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.video-btn:active {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+.video-btn-icon {
+  font-size: 13px;
+  color: var(--gold);
+  transition: color 0.2s ease;
+}
+
+.video-btn:active .video-btn-icon {
+  color: var(--white);
+}
+
 /* ─── 제품 상세 정보 블록 ─── */
 .product-detail-info {
   background: var(--white);
