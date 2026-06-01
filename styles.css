@@ -230,7 +230,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(245, 241, 232, 0.65);
+  background-color: rgba(245, 241, 232, 0.40);
   z-index: 0;
   pointer-events: none;
 }
