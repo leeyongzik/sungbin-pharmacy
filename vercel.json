@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/app/:match*",
+      "destination": "https://sungbin-pharmd.vercel.app/:match*"
+    }
+  ]
+}
