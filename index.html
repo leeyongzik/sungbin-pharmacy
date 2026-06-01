@@ -183,75 +183,58 @@
         <h1 class="screen-title">잘 팔리는 약</h1>
       </header>
 
-      <div class="product-display">
-        <div class="product-tag-line">
-          <span class="product-tag">POPULAR</span>
-          <span class="product-date">고객 추천</span>
+      <div class="popular-wrap">
+
+        <div class="popular-hero">
+          <img src="images/popular.png" alt="잘 팔리는 약 진열대" class="popular-img" />
+          <div class="popular-hero-label">BEST SELLERS</div>
         </div>
 
-        <img src="images/popular.png" alt="잘 팔리는 약 진열대" class="product-img" />
+        <div class="popular-list">
 
-        <p class="product-caption">
-          고객님들이 다시 찾는 베스트셀러입니다.
-        </p>
-
-        <!-- ── 제품 카드 5개 ── -->
-        <div class="product-grid">
-
-          <button class="product-card" onclick="showProduct('omega3')">
-            <div class="product-card-icon">🐟</div>
-            <div class="product-card-body">
-              <div class="product-card-num">01</div>
-              <div class="product-card-name">오메가3</div>
-              <div class="product-card-sub">혈관 · 눈 · 뇌 건강</div>
-            </div>
-            <div class="product-card-arrow">→</div>
+          <button class="popular-item" onclick="showProduct('omega3')">
+            <span class="popular-item-num">01</span>
+            <span class="popular-item-icon">🐟</span>
+            <span class="popular-item-name">오메가3</span>
+            <span class="popular-item-sub">혈관 · 눈 · 뇌</span>
+            <span class="popular-item-arrow">→</span>
           </button>
 
-          <button class="product-card" onclick="showProduct('coq10')">
-            <div class="product-card-icon">⚡</div>
-            <div class="product-card-body">
-              <div class="product-card-num">02</div>
-              <div class="product-card-name">코엔자임Q10</div>
-              <div class="product-card-sub">에너지 · 항산화 · 심장</div>
-            </div>
-            <div class="product-card-arrow">→</div>
+          <button class="popular-item" onclick="showProduct('coq10')">
+            <span class="popular-item-num">02</span>
+            <span class="popular-item-icon">⚡</span>
+            <span class="popular-item-name">코엔자임Q10</span>
+            <span class="popular-item-sub">에너지 · 항산화</span>
+            <span class="popular-item-arrow">→</span>
           </button>
 
-          <button class="product-card" onclick="showProduct('multivitamin')">
-            <div class="product-card-icon">🌿</div>
-            <div class="product-card-body">
-              <div class="product-card-num">03</div>
-              <div class="product-card-name">종합비타민</div>
-              <div class="product-card-sub">하루 영양 균형</div>
-            </div>
-            <div class="product-card-arrow">→</div>
+          <button class="popular-item" onclick="showProduct('multivitamin')">
+            <span class="popular-item-num">03</span>
+            <span class="popular-item-icon">🌿</span>
+            <span class="popular-item-name">종합비타민</span>
+            <span class="popular-item-sub">하루 영양 균형</span>
+            <span class="popular-item-arrow">→</span>
           </button>
 
-          <button class="product-card" onclick="showProduct('probiotics')">
-            <div class="product-card-icon">🦠</div>
-            <div class="product-card-body">
-              <div class="product-card-num">04</div>
-              <div class="product-card-name">유산균</div>
-              <div class="product-card-sub">장 건강 · 면역 · 소화</div>
-            </div>
-            <div class="product-card-arrow">→</div>
+          <button class="popular-item" onclick="showProduct('probiotics')">
+            <span class="popular-item-num">04</span>
+            <span class="popular-item-icon">🦠</span>
+            <span class="popular-item-name">유산균</span>
+            <span class="popular-item-sub">장 건강 · 면역</span>
+            <span class="popular-item-arrow">→</span>
           </button>
 
-          <button class="product-card" onclick="showProduct('vitaminb')">
-            <div class="product-card-icon">✨</div>
-            <div class="product-card-body">
-              <div class="product-card-num">05</div>
-              <div class="product-card-name">비타민B</div>
-              <div class="product-card-sub">피로 · 신경 · 피부</div>
-            </div>
-            <div class="product-card-arrow">→</div>
+          <button class="popular-item" onclick="showProduct('vitaminb')">
+            <span class="popular-item-num">05</span>
+            <span class="popular-item-icon">✨</span>
+            <span class="popular-item-name">비타민B</span>
+            <span class="popular-item-sub">피로 · 신경 · 피부</span>
+            <span class="popular-item-arrow">→</span>
           </button>
 
         </div>
-        <!-- ── /제품 카드 ── -->
 
-        <a class="contact-btn" href="tel:031-719-0936">
+        <a class="contact-btn popular-contact-btn" href="tel:031-719-0936">
           <span>약사에게 자세히 듣기</span>
           <span class="contact-arrow">→</span>
         </a>
