@@ -126,6 +126,20 @@ function showNotFound(query) {
   }, 120);
 }
 
+/* ─── 제품 카드 터치 → 상세 화면 이동 ─── */
+const PRODUCT_SCREEN = {
+  omega3:       'popular-1',
+  coq10:        'popular-2',
+  multivitamin: 'popular-3',
+  probiotics:   'popular-4',
+  vitaminb:     'popular-5'
+};
+
+function showProduct(id) {
+  const screenId = PRODUCT_SCREEN[id];
+  if (screenId) goTo(screenId);
+}
+
 /* ─── XSS 방지 ─── */
 function escapeHtml(str) {
   if (typeof str !== 'string') return '';
