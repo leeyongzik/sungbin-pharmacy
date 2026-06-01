@@ -219,30 +219,50 @@ img {
   pointer-events: none;
 }
 
-#screen-entry  { position: relative; }
-#screen-browse { position: relative; }
+#screen-entry,
+#screen-browse {
+  position: relative;
+  background-color: transparent;
+}
+
+#screen-entry::before,
+#screen-browse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(245, 241, 232, 0.65);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#screen-entry > *,
+#screen-browse > * {
+  position: relative;
+  z-index: 1;
+}
 
 /* 배경 있는 화면의 헤더 — 유리 효과 */
 .screen-header-glass {
-  background: rgba(245, 241, 232, 0.82);
+  background: rgba(245, 241, 232, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 /* 배경 있는 화면의 카드 — 살짝 불투명하게 */
-#screen-entry .menu-card,
-#screen-entry .screen-footer {
-  background: rgba(255, 254, 251, 0.88);
+#screen-entry .menu-card {
+  background: rgba(255, 254, 251, 0.90);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 #screen-entry .screen-footer {
-  background: rgba(245, 241, 232, 0.82);
+  background: rgba(245, 241, 232, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 #screen-browse .browse-card {
-  background: rgba(255, 254, 251, 0.88);
+  background: rgba(255, 254, 251, 0.90);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
