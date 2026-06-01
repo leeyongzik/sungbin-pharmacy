@@ -352,15 +352,19 @@ img {
    03. CHAT (약사 대화)
    ═════════════════════════════════════════ */
 .chat-wrap {
-  padding: 20px;
+  flex: 1;
+  padding: 14px 20px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  padding-bottom: calc(28px + env(safe-area-inset-bottom));
+  gap: 12px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  overflow: hidden;
 }
 
 .pharmacist-frame {
   width: 100%;
+  flex-shrink: 0;
+  height: 32vh;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--beige);
@@ -378,20 +382,22 @@ img {
 
 .pharmacist-img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
 }
 
 .pharmacist-greeting {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 6px;
   font-family: var(--font-serif-kr);
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--green-dark);
   line-height: 1.25;
   letter-spacing: -0.5px;
-  padding: 6px 0 4px;
+  flex-shrink: 0;
 }
 
 .greeting-line:last-child {
@@ -404,23 +410,23 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--green);
-  margin-bottom: -8px;
-  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .quick-questions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
+  flex-shrink: 0;
 }
 
 .quick-q {
   background: var(--cream-warm);
   color: var(--green-dark);
   border: 1px solid var(--beige);
-  padding: 9px 14px;
+  padding: 7px 13px;
   border-radius: 100px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   transition: all 0.2s ease;
 }
@@ -434,12 +440,12 @@ img {
 .chat-input-wrap {
   display: flex;
   gap: 8px;
-  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .chat-input {
   flex: 1;
-  padding: 15px 16px;
+  padding: 13px 16px;
   border: 1px solid var(--beige-warm);
   border-radius: var(--radius);
   font-size: 15px;
@@ -479,12 +485,13 @@ img {
   border: 1px solid var(--beige);
   border-left: 3px solid var(--gold);
   border-radius: var(--radius);
-  padding: 18px 20px;
-  font-size: 14.5px;
+  padding: 16px 18px;
+  font-size: 14px;
   line-height: 1.75;
   color: var(--charcoal);
   white-space: pre-line;
   display: none;
+  overflow-y: auto;
 }
 
 .chat-answer.show {
